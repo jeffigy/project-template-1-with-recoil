@@ -1,3 +1,4 @@
+"use client";
 import { extendTheme, useColorMode, type ThemeConfig } from "@chakra-ui/react";
 import "@fontsource/inter/300.css";
 import "@fontsource/inter/400.css";

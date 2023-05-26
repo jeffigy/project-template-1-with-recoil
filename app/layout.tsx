@@ -1,3 +1,4 @@
+"use client";
 import DashboardLayout from "./components/Layout/layout";
 import { CacheProvider } from "@chakra-ui/next-js";
 import { ChakraProvider, ColorModeScript } from "@chakra-ui/react";
