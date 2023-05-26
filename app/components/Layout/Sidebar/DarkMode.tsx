@@ -8,20 +8,19 @@ import {
   Spacer,
 } from "@chakra-ui/react";
 import React from "react";
-import { Moon } from "react-feather";
+import { Moon, Sun } from "react-feather";
 type DarkModeProps = {};
 
 const DarkMode: React.FC<DarkModeProps> = () => {
   const { colorMode, toggleColorMode } = useColorMode();
-  //   return (
-  // <header>
-  //   <Button onClick={toggleColorMode}>
-  //     Toggle {colorMode === "light" ? "Dark" : "Light"}
-  //   </Button>
-  // </header>
-  //   );
+
   return (
-    <Flex width={"full"} color={"blue.500"} align={"center"} my={"5px"}>
+    <Flex
+      width={"full"}
+      color={colorMode === "dark" ? "blue.500" : "gray.500"}
+      align={"center"}
+      my={"5px"}
+    >
       <Flex
         borderRadius={"md"}
         borderLeft={"4px solid"}
