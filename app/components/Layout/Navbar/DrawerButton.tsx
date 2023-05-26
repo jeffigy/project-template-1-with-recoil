@@ -1,3 +1,4 @@
+"use client";
 import { HamburgerIcon } from "@chakra-ui/icons";
 import { IconButton } from "@chakra-ui/react";
 type DrawerButtonProps = {

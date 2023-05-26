@@ -1,3 +1,4 @@
+"use client";
 import {
   Card,
   CardBody,
@@ -33,9 +34,7 @@ const Sidebar: React.FC<SidebarProps> = ({ onClose, display }) => {
       h={{ base: "full", md: "calc(100vh - 40px)" }}
       w={{ base: "full", md: "50px", lg: "240px" }}
       flexDirection={"column"}
-      // alignItems={"center"}
-      justifyContent={"space-between"}
-      p={"20px"}
+      p={{ base: "20px", md: "0px", lg: "20px" }}
     >
       <CardHeader padding={"0px"}>
         <Branding onClose={onClose} />
@@ -53,9 +52,9 @@ const Sidebar: React.FC<SidebarProps> = ({ onClose, display }) => {
           ))}
         </Stack>
       </CardBody>
-      <CardFooter padding={"0px"}>
+      {/* <CardFooter padding={"0px"}>
         <DarkMode />
-      </CardFooter>
+      </CardFooter> */}
     </Card>
   );
 };

@@ -1,3 +1,4 @@
+"use client";
 import { Avatar, Card, Flex, Icon, IconButton, Text } from "@chakra-ui/react";
 import React from "react";
 import { Menu } from "react-feather";

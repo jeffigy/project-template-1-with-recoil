@@ -17,27 +17,43 @@ const Navlink: React.FC<NavlinkProps> = ({ name, icon, to, onClose }) => {
   const isActive = pathname === to;
   return (
     <Link href={to}>
+      {/* <Flex
+        justifyContent={"center"}
+        p={"5px 10px"}
+        w={"full"}
+        alignItems={"center"}
+        border={"1px solid"}
+      >
+        <Icon boxSize={"20px"} as={icon} />
+      </Flex> */}
       <Flex
+        justifyContent={{ base: "left", md: "center", lg: "left" }}
         color={isActive ? "blue.500" : color}
-        align={"center"}
         my={"5px"}
         onClick={onClose}
+        borderRadius={"md"}
+        borderLeft={{
+          base: "none",
+          lg: isActive ? "4px solid" : "4px solid transparent",
+        }}
+        borderColor={isActive ? "blue.500" : "transparent"}
+        pl={{ base: "10px", md: "0px", lg: "10px" }}
+        py={"10px"}
+        bg={isActive ? bgColor : "transparent"}
       >
-        <Flex
-          borderRadius={"md"}
-          borderLeft={{
-            base: "none",
-            lg: isActive ? "4px solid" : "4px solid transparent",
-          }}
-          borderColor={isActive ? "blue.500" : "transparent"}
-          width={"full"}
-          px={"10px"}
-          py={"10px"}
-          bg={isActive ? bgColor : "transparent"}
+        {icon && (
+          <Icon
+            boxSize={"20px"}
+            as={icon}
+            mr={{ base: "20px", md: "0px", lg: "20px" }}
+          />
+        )}
+        <Text
+          display={{ base: "block", md: "none", lg: "block" }}
+          fontSize={"15px"}
         >
-          {icon && <Icon boxSize={"20px"} as={icon} mr={"20px"} />}
-          <Text fontSize={"15px"}>{name}</Text>
-        </Flex>
+          {name}
+        </Text>
       </Flex>
     </Link>
   );

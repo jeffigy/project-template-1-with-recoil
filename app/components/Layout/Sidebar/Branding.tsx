@@ -1,3 +1,4 @@
+"use client";
 import { CloseButton, Flex, Spacer, Text } from "@chakra-ui/react";
 import React from "react";
 
@@ -12,7 +13,12 @@ const Branding: React.FC<BrandingProps> = ({ onClose }) => {
       align={"center"}
       h={"80px"}
     >
-      <Text color={"brand.200"} fontWeight={"bold"} fontSize={"30px"}>
+      <Text
+        display={{ base: "block", md: "none", lg: "block" }}
+        color={"brand.200"}
+        fontWeight={"bold"}
+        fontSize={"30px"}
+      >
         Planti.
       </Text>
       <CloseButton
