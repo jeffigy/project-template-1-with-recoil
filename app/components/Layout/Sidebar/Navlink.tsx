@@ -31,7 +31,7 @@ const Navlink: React.FC<NavlinkProps> = ({ name, icon, to, onClose }) => {
         color={isActive ? "blue.500" : color}
         my={"5px"}
         onClick={onClose}
-        borderRadius={"md"}
+        borderRadius={{ base: "md", md: "50px", lg: "md" }}
         borderLeft={{
           base: "none",
           lg: isActive ? "4px solid" : "4px solid transparent",

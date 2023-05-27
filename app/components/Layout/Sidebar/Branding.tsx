@@ -19,7 +19,7 @@ const Branding: React.FC<BrandingProps> = ({ onClose }) => {
         fontWeight={"bold"}
         fontSize={"30px"}
       >
-        Planti.
+        Branding
       </Text>
       <CloseButton
         display={{ base: "flex", md: "none" }}

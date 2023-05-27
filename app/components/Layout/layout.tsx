@@ -31,11 +31,7 @@ const DashboardLayout: React.FC<DashboardLayoutProps> = ({ children }) => {
   }, [isMobile, isOpen, onClose]);
   return (
     <Flex flexDirection={"column"} minH={"100vh"} p={"20px"}>
-      <Sidebar
-        onClose={() => onClose}
-        display={{ base: "none", md: "block" }}
-      />
-
+      <Sidebar onClose={() => onClose} display={{ base: "none", md: "flex" }} />
       <Drawer
         autoFocus={false}
         returnFocusOnClose={false}
@@ -60,7 +56,6 @@ const DashboardLayout: React.FC<DashboardLayoutProps> = ({ children }) => {
         {children}
       </Flex>
     </Flex>
-    // </Providers>
   );
 };
 export default DashboardLayout;

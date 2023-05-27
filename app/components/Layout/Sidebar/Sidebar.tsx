@@ -33,13 +33,13 @@ const Sidebar: React.FC<SidebarProps> = ({ onClose, display }) => {
       pos={"fixed"}
       h={{ base: "full", md: "calc(100vh - 40px)" }}
       w={{ base: "full", md: "50px", lg: "240px" }}
-      flexDirection={"column"}
       p={{ base: "20px", md: "0px", lg: "20px" }}
+      pb={{ base: "0px", md: "20px", lg: "0px" }}
     >
       <CardHeader padding={"0px"}>
         <Branding onClose={onClose} />
       </CardHeader>
-      <CardBody padding={"0px"}>
+      <CardBody p={"5px"}>
         <Stack>
           {NavItems.map((item) => (
             <Navlink
@@ -52,9 +52,9 @@ const Sidebar: React.FC<SidebarProps> = ({ onClose, display }) => {
           ))}
         </Stack>
       </CardBody>
-      {/* <CardFooter padding={"0px"}>
+      <CardFooter padding={"0px"} justifyContent={"center"}>
         <DarkMode />
-      </CardFooter> */}
+      </CardFooter>
     </Card>
   );
 };
