@@ -5,7 +5,7 @@ import { textState } from "../atoms/textState";
 import { useRecoilState } from "recoil";
 type pageProps = {};
 
-const page: React.FC<pageProps> = () => {
+const Page: React.FC<pageProps> = () => {
   const [text, setText] = useRecoilState(textState);
   const onChange = (event: any) => setText(event.target.value);
   return (
@@ -16,4 +16,4 @@ const page: React.FC<pageProps> = () => {
     </div>
   );
 };
-export default page;
+export default Page;
