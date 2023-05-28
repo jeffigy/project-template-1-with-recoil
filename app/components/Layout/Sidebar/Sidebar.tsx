@@ -9,7 +9,7 @@ import {
 
 import React from "react";
 import Navlink from "./Navlink";
-import { Archive, Layout, ShoppingBag, Map } from "react-feather";
+import { Archive, Layout, ShoppingBag, Map, Plus, List } from "react-feather";
 import DarkMode from "./DarkMode";
 import Branding from "./Branding";
 
@@ -24,6 +24,8 @@ const Sidebar: React.FC<SidebarProps> = ({ onClose, display }) => {
     { name: "My Orders", icon: ShoppingBag, to: "/orders" },
     { name: "Explore", icon: Map, to: "/explore" },
     { name: "Featured Products", icon: Archive, to: "/products" },
+    { name: "Counter", icon: Plus, to: "/counter" },
+    { name: "Todo", icon: List, to: "/todo" },
   ];
   return (
     <Card
