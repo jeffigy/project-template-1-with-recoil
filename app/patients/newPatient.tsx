@@ -34,13 +34,6 @@ const NewPatient: React.FC = () => {
     setlname("");
   };
 
-  // handle change function
-  const onChange = ({
-    target: { fname, lname },
-  }: React.ChangeEvent<HTMLInputElement>) => {
-    setfname(fname);
-    setlname(lname);
-  };
   return (
     <div>
       <HStack spacing={5}>
