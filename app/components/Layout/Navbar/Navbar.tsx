@@ -12,7 +12,7 @@ const Navbar: React.FC<NavbarProps> = ({ btnRef, onClick }) => (
     borderRadius={"md"}
     zIndex={1}
     ml={{ base: 0, md: "70px", lg: "260px" }}
-    top={0}
+    top={"20px"}
     position={"sticky"}
     h={"50px"}
     justifyContent={"space-between"}
