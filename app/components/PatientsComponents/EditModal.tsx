@@ -16,16 +16,35 @@ import {
   Stack,
   IconButton,
 } from "@chakra-ui/react";
-import React from "react";
+import React, { useState } from "react";
 import { Edit2 } from "react-feather";
 
 type EditModalProps = {
-  onOpen: () => void;
-  isOpen: boolean;
-  onClose: () => void;
+  index: any;
+  patient: any;
+  patientList: any;
+  setPatientList: any;
 };
 
-const EditModal: React.FC<EditModalProps> = ({ onOpen, isOpen, onClose }) => {
+const EditModal: React.FC<EditModalProps> = ({
+  patient,
+  patientList,
+  setPatientList,
+  index,
+}) => {
+  const editItem = () => {
+    const newList = replaceItemAtIndex(patientList, index, {
+      ...patient,
+      fname: newFName,
+      lname: newLName,
+    });
+    setPatientList(newList);
+    onClose();
+  };
+
+  const [newFName, setNewFName] = useState(patient.fname);
+  const [newLName, setNewLName] = useState(patient.lname);
+  const { isOpen, onOpen, onClose } = useDisclosure();
   return (
     <>
       <IconButton
@@ -44,24 +63,37 @@ const EditModal: React.FC<EditModalProps> = ({ onOpen, isOpen, onClose }) => {
             <Stack spacing={5}>
               <FormControl>
                 <FormLabel>First Name</FormLabel>
-                <Input placeholder="Input first name" />
+                <Input
+                  value={newFName}
+                  onChange={(e) => setNewFName(e.target.value)}
+                  placeholder="Input first name"
+                />
               </FormControl>
               <FormControl>
-                <FormLabel>First Name</FormLabel>
-                <Input placeholder="Input first name" />
+                <FormLabel>Last Name</FormLabel>
+                <Input
+                  value={newLName}
+                  onChange={(e) => setNewLName(e.target.value)}
+                  placeholder="Input first name"
+                />
               </FormControl>
             </Stack>
           </ModalBody>
 
           <ModalFooter>
-            <Button colorScheme="blue" mr={3} onClick={onClose}>
-              Close
+            <Button variant={"ghost"} mr={3} onClick={onClose}>
+              Cancel
             </Button>
-            <Button variant="ghost">Secondary Action</Button>
+            <Button variant="ghost" colorScheme="blue" onClick={editItem}>
+              Save
+            </Button>
           </ModalFooter>
         </ModalContent>
       </Modal>
     </>
   );
 };
+function replaceItemAtIndex(arr: any, index: any, newValue: any) {
+  return [...arr.slice(0, index), newValue, ...arr.slice(index + 1)];
+}
 export default EditModal;

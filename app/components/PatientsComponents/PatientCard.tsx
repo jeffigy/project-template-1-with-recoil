@@ -19,26 +19,35 @@ type PatientCardProps = {
 };
 
 const PatientCard: React.FC<PatientCardProps> = ({ patient }) => {
-  const { isOpen, onOpen, onClose } = useDisclosure();
+  const [patientList, setPatientList] = useRecoilState(patientListState);
+  const index = patientList.findIndex((item) => item === patient);
+
+  const deleteItem = () => {
+    const newList = removeItemAtIndex(patientList, index);
+    setPatientList(newList);
+  };
   return (
-    <Card
-      onClick={onOpen}
-      w={"full"}
-      padding={"10px"}
-      my={"10px"}
-      cursor={"pointer"}
-    >
+    <Card w={"full"} padding={"10px"} my={"10p"}>
       <Flex p={"10px"} justifyContent={"space-between"} alignItems={"center"}>
         <Text>
           {" "}
           {patient.fname} {patient.lname}
         </Text>
         <HStack>
-          <EditModal isOpen={isOpen} onClose={onClose} onOpen={onOpen} />
-          <DeleteModal isOpen={isOpen} onClose={onClose} onOpen={onOpen} />
+          <EditModal
+            patient={patient}
+            index={index}
+            patientList={patientList}
+            setPatientList={setPatientList}
+          />
+          <DeleteModal patient={patient} onClick={deleteItem} />
         </HStack>
       </Flex>
     </Card>
   );
 };
+
+function removeItemAtIndex(arr: any, index: any) {
+  return [...arr.slice(0, index), ...arr.slice(index + 1)];
+}
 export default PatientCard;
