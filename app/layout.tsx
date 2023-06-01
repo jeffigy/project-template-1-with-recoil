@@ -11,16 +11,19 @@ export default function RootLayout({
 }) {
   return (
     <RecoilRoot>
-      <html lang="en">
-        <body>
-          <ColorModeScript initialColorMode={theme.config.initialColorMode} />
-          <CacheProvider>
-            <ChakraProvider theme={theme}>
-              <DashboardLayout>{children}</DashboardLayout>
-            </ChakraProvider>
-          </CacheProvider>
-        </body>
-      </html>
+      <ErrorBoundary>
+        {" "}
+        <html lang="en">
+          <body>
+            <ColorModeScript initialColorMode={theme.config.initialColorMode} />
+            <CacheProvider>
+              <ChakraProvider theme={theme}>
+                <DashboardLayout>{children}</DashboardLayout>
+              </ChakraProvider>
+            </CacheProvider>
+          </body>
+        </html>
+      </ErrorBoundary>
     </RecoilRoot>
   );
 }
